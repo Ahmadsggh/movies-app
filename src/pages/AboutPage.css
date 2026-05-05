@@ -1,0 +1,97 @@
+.about-page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+.about-hero {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.about-hero h1 {
+  font-size: 2.5rem;
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+
+.about-hero p {
+  color: #a8a8b3;
+  font-size: 1.1rem;
+}
+
+.about-section {
+  background-color: #16213e;
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid #0f3460;
+}
+
+.about-section h2 {
+  color: #e94560;
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+.about-section p {
+  color: #a8a8b3;
+  line-height: 1.7;
+  font-size: 1rem;
+}
+
+.tech-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.tech-card {
+  background-color: #0f3460;
+  color: #fff;
+  padding: 0.5rem 1.2rem;
+  border-radius: 20px;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+.team-card {
+  background-color: #1a1a2e;
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+  border: 1px solid #0f3460;
+  transition: transform 0.2s;
+}
+
+.team-card:hover {
+  transform: translateY(-3px);
+}
+
+.team-emoji {
+  font-size: 2.5rem;
+  margin-bottom: 0.8rem;
+}
+
+.team-card h3 {
+  color: #fff;
+  font-size: 1rem;
+  margin-bottom: 0.3rem;
+}
+
+.team-card p {
+  color: #a8a8b3;
+  font-size: 0.85rem;
+}
+
+@media (max-width: 600px) {
+  .about-hero h1 {
+    font-size: 1.8rem;
+  }
+}

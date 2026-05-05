@@ -1,0 +1,59 @@
+.movie-card {
+  background-color: #16213e;
+  border-radius: 12px;
+  padding: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: 1px solid #0f3460;
+}
+
+.movie-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(233, 69, 96, 0.2);
+}
+
+.movie-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.movie-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.movie-rating {
+  font-size: 0.9rem;
+  color: #f1c40f;
+  white-space: nowrap;
+  font-weight: bold;
+}
+
+.movie-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.movie-director,
+.movie-year {
+  font-size: 0.85rem;
+  color: #a8a8b3;
+}
+
+.movie-genre {
+  display: inline-block;
+  padding: 0.2rem 0.7rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #fff;
+  width: fit-content;
+}
