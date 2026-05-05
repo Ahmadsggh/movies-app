@@ -24,3 +24,6 @@ dist-ssr/
 # OS
 .DS_Store
 Thumbs.db
+
+# Ignore embedded repo
+web project/
