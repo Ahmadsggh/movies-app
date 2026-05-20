@@ -1,4 +1,6 @@
-const BASE_URL = 'https://movies-backend-5b0k.onrender.com/api';
+const BASE_URL = typeof window !== 'undefined' && window.location.hostname !== 'localhost'
+  ? '/api'
+  : 'http://localhost:5000/api';
 
 // Auth API calls
 export const registerUser = async (username, email, password) => {

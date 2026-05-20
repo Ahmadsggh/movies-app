@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const session = require('express-session');
 const cors = require('cors');
 const dns = require('dns');
+const path = require('path');
 require('dotenv').config();
 
 // Fix for Node.js v24 DNS issue with MongoDB SRV
@@ -15,9 +16,9 @@ const postLogger = require('./middleware/logger');
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// CORS - allow frontend to communicate with backend
+// CORS
 app.use(cors({
-  origin: ['http://localhost:5173', 'https://movies-app-2mb7.onrender.com'],
+  origin: ['http://localhost:5173'],
   credentials: true,
 }));
 
@@ -31,8 +32,8 @@ app.use(session({
   saveUninitialized: false,
   cookie: {
     httpOnly: true,
-    secure: true,
-    sameSite: 'none',
+    secure: false,
+    sameSite: 'lax',
     maxAge: 1000 * 60 * 60 * 24, // 1 day
   },
 }));
@@ -40,13 +41,14 @@ app.use(session({
 // Custom POST logger middleware
 app.use(postLogger);
 
-// Routes
+// API Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/movies', movieRoutes);
 
-// Health check
-app.get('/', (req, res) => {
-  res.json({ message: 'Movies API is running!' });
+// Serve React frontend
+app.use(express.static(path.join(__dirname, '../dist')));
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../dist', 'index.html'));
 });
 
 // Connect to MongoDB and start server
