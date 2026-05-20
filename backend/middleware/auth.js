@@ -1,0 +1,9 @@
+// Middleware to check if user is authenticated
+const requireAuth = (req, res, next) => {
+  if (!req.session || !req.session.userId) {
+    return res.status(401).json({ message: 'Unauthorized. Please login first.' });
+  }
+  next();
+};
+
+module.exports = requireAuth;
