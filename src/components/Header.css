@@ -59,3 +59,25 @@
     padding: 0.3rem 0.6rem;
   }
 }
+
+.nav-user {
+  color: #a8a8b3;
+  font-size: 0.95rem;
+  padding: 0.4rem 0.8rem;
+}
+
+.logout-btn {
+  background-color: #e94560;
+  color: #fff;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.2s;
+}
+
+.logout-btn:hover {
+  background-color: #c73652;
+}

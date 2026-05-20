@@ -1,6 +1,6 @@
 import './MovieCard.css';
 
-function MovieCard({ movie }) {
+function MovieCard({ movie, currentUser, onEdit, onDelete }) {
   const genreColors = {
     Drama: '#4a90d9',
     Crime: '#e94560',
@@ -11,6 +11,8 @@ function MovieCard({ movie }) {
   };
 
   const color = genreColors[movie.genre] || '#888';
+  const isOwner = currentUser && movie.createdBy &&
+    (movie.createdBy._id === currentUser.id || movie.createdBy === currentUser.id);
 
   return (
     <div className="movie-card">
@@ -21,10 +23,19 @@ function MovieCard({ movie }) {
       <div className="movie-info">
         <span className="movie-director">🎬 {movie.director}</span>
         <span className="movie-year">📅 {movie.year}</span>
+        {movie.createdBy && (
+          <span className="movie-creator">👤 {movie.createdBy.username || 'Unknown'}</span>
+        )}
       </div>
       <span className="movie-genre" style={{ backgroundColor: color }}>
         {movie.genre}
       </span>
+      {isOwner && (
+        <div className="movie-actions">
+          <button className="edit-btn" onClick={() => onEdit(movie)}>✏️ Edit</button>
+          <button className="delete-btn" onClick={() => onDelete(movie._id)}>🗑️ Delete</button>
+        </div>
+      )}
     </div>
   );
 }
